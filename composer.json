@@ -1,0 +1,13 @@
+{
+    "name": "highfivery/wp-plugin-scaffold",
+    "type": "wordpress-plugin",
+    "authors": [
+        {
+            "name": "HighFivery",
+            "email": "info@highfivery.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    }
+}

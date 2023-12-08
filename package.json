@@ -1,0 +1,33 @@
+{
+	"name": "wp-plugin-scaffold",
+	"version": "0.1.0",
+	"scripts": {
+	  "start": "npm run watch",
+	  "watch": "10up-toolkit watch --port=5000",
+	  "build": "10up-toolkit build",
+	  "format-js": "10up-toolkit format-js",
+	  "lint-js": "10up-toolkit lint-js",
+	  "lint-style": "10up-toolkit lint-style",
+	  "test": "10up-toolkit test-unit-jest",
+	  "clean-dist": "rm -rf ./dist",
+	  "scaffold:block": "cd includes/blocks/ && wp-create-block --no-plugin --template ../../../../bin/create-block-template"
+	},
+	"engines": {
+	  "node": ">=12.0.0"
+	},
+	"devDependencies": {
+	  "10up-toolkit": "^5.2.2"
+	},
+	"dependencies": {
+	  "modern-normalize": "^2.0.0"
+	},
+	"10up-toolkit": {
+	  "useBlockAssets": true,
+	  "entry": {
+		"admin": "./assets/js/admin/admin.js",
+		"editor-style-overrides": "./assets/js/admin/editor-style-overrides.js",
+		"frontend": "./assets/js/frontend/frontend.js",
+		"core-block-overrides": "./includes/core-block-overrides.js"
+	  }
+	}
+}
