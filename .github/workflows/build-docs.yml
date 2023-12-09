@@ -1,0 +1,27 @@
+name: Build Hook Docs
+
+on:
+ push:
+   branches:
+    - master
+
+jobs:
+  hookdocs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2.4.0
+    - name: Use Node.js 10
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: npm install, and build docs
+      run: |
+        npm install
+        npm run build:docs
+      env:
+        CI: true
+    - name: Deploy to GH Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: './docs'

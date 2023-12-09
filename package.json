@@ -5,6 +5,7 @@
 		"start": "npm run watch",
 		"watch": "10up-toolkit watch --port=5000",
 		"build": "10up-toolkit build",
+		"build:docs": "rm -rf hookdocs/ && jsdoc -c hookdoc-conf.json",
 		"format-js": "10up-toolkit format-js",
 		"lint-js": "10up-toolkit lint-js",
 		"lint-style": "10up-toolkit lint-style",
@@ -18,7 +19,9 @@
 	"devDependencies": {
 		"@commitlint/config-conventional": "^18.4.3",
 		"10up-toolkit": "^5.2.2",
-		"husky": "^8.0.3"
+		"husky": "^8.0.3",
+		"jsdoc": "~3.6.3",
+    	"wp-hookdoc": "^0.2.0"
 	},
 	"dependencies": {
 		"modern-normalize": "^2.0.0"
