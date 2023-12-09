@@ -21,6 +21,7 @@
  * WPPluginScaffold - Namespace & package
  * wp_plugin_scaffold - Function prefix
  * https://project-website.tld - Project domain
+ * https://github.com/Highfivery/wp-plugin-scaffold - Git repo
  * WP Plugin Scaffold - Shortname
  *
  * @package  WPPluginScaffold
@@ -48,3 +49,4 @@ require_once WP_PLUGIN_SCAFFOLD_PLUGIN_INC . 'database.php';
 WPPluginScaffold\Core\setup();
 //WPPluginScaffold\Database\setup();
 //WPPluginScaffold\Blocks\setup();
+

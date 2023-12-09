@@ -167,6 +167,14 @@ function add_options_page() {
 	);
 }
 
+/**
+ * Displays the options page for the WordPress Plugin Scaffold.
+ *
+ * This function is responsible for rendering the HTML markup for the options
+ * page of the WordPress Plugin Scaffold. It retrieves the plugin options using
+ * the `get_option` function and then displays the necessary HTML elements for
+ * the options page.
+ */
 function options_page() {
 	$options = get_option( 'wp_plugin_scaffold' );
 	?>
@@ -183,6 +191,11 @@ function options_page() {
 	<?php
 }
 
+/**
+ * Registers the plugin settings.
+ *
+ * @return void
+ */
 function register_settings() {
 	$plugin_settings = [
 		'general' => [
