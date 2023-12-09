@@ -9,11 +9,9 @@ jobs:
   hookdocs:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2.4.0
-    - name: Use Node.js 10
-      uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
+    - uses: actions/checkout@v3
+    - name: Install Dependencies
+      uses: actions/setup-node@v4
     - name: npm install, and build docs
       run: |
         npm install
