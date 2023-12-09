@@ -21,6 +21,7 @@
  * WPPluginScaffold - Namespace & package
  * wp_plugin_scaffold - Function prefix
  * https://project-website.tld - Project domain
+ * WP Plugin Scaffold - Shortname
  *
  * @package  WPPluginScaffold
  */
@@ -41,7 +42,9 @@ require_once WP_PLUGIN_SCAFFOLD_PLUGIN_INC . 'template-tags.php';
 require_once WP_PLUGIN_SCAFFOLD_PLUGIN_INC . 'utility.php';
 require_once WP_PLUGIN_SCAFFOLD_PLUGIN_INC . 'blocks.php';
 require_once WP_PLUGIN_SCAFFOLD_PLUGIN_INC . 'helpers.php';
+require_once WP_PLUGIN_SCAFFOLD_PLUGIN_INC . 'database.php';
 
 // Run the setup functions.
 WPPluginScaffold\Core\setup();
+//WPPluginScaffold\Database\setup();
 //WPPluginScaffold\Blocks\setup();
