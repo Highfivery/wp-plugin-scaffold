@@ -1,10 +1,12 @@
 # WP Plugin Scaffold
 
-> A plugin WordPress scaffold to help you get started quickly.
+> Streamline WordPress plugin creation with our scaffold, offering WordPress Coding Standards, PHPDoc, 10up Toolkit, and a ready-to-use admin page.
 
 [![Support Level](https://img.shields.io/badge/support-active-green.svg)](#support-level) [![MIT License](https://img.shields.io/github/license/Highfivery/wp-plugin-scaffold.svg)](https://github.com/Highfivery/wp-plugin-scaffold/blob/trunk/LICENSE.md)
 
 ## Overview
+
+Kickstart your WordPress plugin development with the WordPress Plugin Scaffold. Adhering to WordPress Coding Standards and equipped with PHPDoc for seamless documentation, our scaffold streamlines your workflow. It includes 10up Toolkit for efficient linting, compiling, and file optimization, plus a ready-to-go block build framework and an admin options page template. Ideal for developers seeking a robust starting point.
 
 ## Support Level
 
