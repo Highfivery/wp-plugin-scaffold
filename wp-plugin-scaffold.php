@@ -12,18 +12,6 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       wp-plugin-scaffold
  *
- * This is a plugin scaffold to help you get started quickly and should be copied
- * to your new plugin. Run a search and replace on the following strings:
- *
- * WordPress Plugin Scaffold - Plugin name
- * wp-plugin-scaffold - Text domain
- * WP_PLUGIN_SCAFFOLD_PLUGIN - Contant prefix
- * WPPluginScaffold - Namespace & package
- * wp_plugin_scaffold - Function prefix
- * https://project-website.tld - Project domain
- * https://github.com/Highfivery/wp-plugin-scaffold - Git repo
- * WP Plugin Scaffold - Shortname
- *
  * @package  WPPluginScaffold
  */
 

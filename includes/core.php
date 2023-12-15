@@ -179,7 +179,7 @@ function options_page() {
 	$options = get_option( 'wp_plugin_scaffold' );
 	?>
 	<div class="wrap">
-		<h1><?php echo __( 'WordPress Plugin Scaffold Settings', 'wp-plugin-scaffold' ); ?></h1>
+		<h1><?php echo esc_html( __( 'WordPress Plugin Scaffold Settings', 'wp-plugin-scaffold' ) ); ?></h1>
 		<form method="post" action="options.php">
 		<?php
 		settings_fields( 'wp-plugin-scaffold' );
@@ -245,11 +245,29 @@ function settings_section() {
 }
 
 function settings_field( $args ) {
-	$value = get_option( 'wp_plugin_scaffold' );
+	$settings = get_option( 'wp_plugin_scaffold' );
 
 	$setting_name = 'wp_plugin_scaffold[' . $args['key'] . ']';
+	$value        = ! empty( $settings[ $args['key'] ] ) ? $settings[ $args['key'] ] : false;
 
 	switch ( $args['type'] ) {
+		case 'textarea':
+			?>
+			<textarea
+				id="<?php echo esc_attr( $args['key'] ); ?>"
+				name="<?php echo esc_attr( $setting_name ); ?>"
+				<?php if ( ! empty( $args['rows'] ) ) : ?>
+					rows="<?php echo esc_attr( $args['rows'] ); ?>"
+				<?php endif; ?>
+				<?php if ( ! empty( $args['classes'] ) ) : ?>
+					class="<?php echo esc_attr( $args['classes'] ); ?>"
+				<?php endif; ?>
+				<?php if ( ! empty( $args['placeholder'] ) ) : ?>
+					placeholder="<?php echo esc_attr( $args['placeholder'] ); ?>"
+				<?php endif; ?>
+			><?php echo wp_kses_post( $value ); ?></textarea>
+			<?php
+			break;
 		case 'url':
 		case 'text':
 		case 'password':
@@ -260,9 +278,7 @@ function settings_field( $args ) {
 				id="<?php echo esc_attr( $args['key'] ); ?>"
 				name="<?php echo esc_attr( $setting_name ); ?>"
 				type="<?php echo esc_attr( $args['type'] ); ?>"
-				<?php if ( ! empty( $args['value'] ) ) : ?>
-					value="<?php echo esc_attr( $args['value'] ); ?>"
-				<?php endif; ?>
+				value="<?php echo esc_attr( $value ); ?>"
 				<?php if ( ! empty( $args['classes'] ) ) : ?>
 					class="<?php echo esc_attr( $args['classes'] ); ?>"
 				<?php endif; ?>
@@ -279,6 +295,45 @@ function settings_field( $args ) {
 					step="<?php echo esc_attr( $args['step'] ); ?>"
 				<?php endif; ?>
 			/>
+			<?php
+			break;
+		case 'select':
+			?>
+			<select
+				id="<?php echo esc_attr( $args['key'] ); ?>"
+				name="<?php echo esc_attr( $setting_name ); ?>"
+				<?php if ( ! empty( $args['multiple'] ) ) : ?>
+					multiple
+				<?php endif; ?>
+				<?php if ( ! empty( $args['classes'] ) ) : ?>
+					class="<?php echo esc_attr( $args['classes'] ); ?>"
+				<?php endif; ?>
+			>
+				<?php
+				foreach ( $args['options'] as $key => $label ) :
+					$selected = false;
+					if (
+						(
+							! empty( $value ) &&
+							! empty( $args['multiple'] ) &&
+							is_array( $value ) &&
+							in_array( $key, $value, true )
+						) ||
+						! empty( $value ) && $value === $key
+					) :
+						$selected = true;
+					endif;
+					?>
+					<option
+						value="<?php echo esc_attr( $key ); ?>"
+						<?php if ( $selected ) : ?>
+							selected="selected"
+						<?php endif; ?>
+					>
+						<?php echo esc_html( $label ); ?>
+					</option>
+				<?php endforeach; ?>
+			</select>
 			<?php
 			break;
 	}
